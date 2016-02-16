@@ -8,28 +8,36 @@ exports = (typeof window === 'undefined') ? global : window;
 
 exports.bestPracticesAnswers = {
   globals : function() {
-    myObject = {
-      name : 'Jory'
-    };
+		var myObject = {
+			name : 'Jory'
+		};
 
-    return myObject;
-  },
+		return myObject;
+	},
 
-  functions : function(flag) {
-    if (flag) {
-      function getValue() { return 'a'; }
-    } else {
-      function getValue() { return 'b'; }
-    }
+	functions : function(flag) {
+		//Change function declaration to variable as functions are hoiseted
+		var getValue;
+		if (flag) {
+			getValue = function() {
+				return 'a';
+			};
 
-    return getValue();
-  },
+		} else {
+			getValue = function() {
+				return 'b';
+			};
 
-  parseInt : function(num) {
-    return parseInt(num);
-  },
+		}
 
-  identity : function(val1, val2) {
+		return getValue();
+	},
 
-  }
+	parseInt : function(num) {
+		return parseInt(num, 10);
+	},
+
+	identity : function(val1, val2) {
+		return (val1 === val2);
+	}
 };
