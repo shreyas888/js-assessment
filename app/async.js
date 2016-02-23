@@ -20,7 +20,6 @@ exports.asyncAnswers = {
 						if (xmlhttp.status == 200) {
 							//On success resolve promise
 							var data = JSON.parse(xmlhttp.response);
-							console.log(data['people']);
 							var result = [];
 							//Push names
 							data['people'].forEach(function(ele) {
