@@ -28,7 +28,7 @@ exports.recursionAnswers = {
 	permute : function(arr) {
 		var permutations = [],
 		    stack = [];
-		
+		var d = 0;
 		function doPerm() {
 			//if arr is exahusted push data to o/p
 			if (arr.length == 0) {
@@ -36,10 +36,10 @@ exports.recursionAnswers = {
 			}
 			for (var i = 0; i < arr.length; i++) {
 				//reduce array one elem each cycle
-				var x = arr.splice(i, 1);
+				var x = arr.splice(i, 1)[0];
 				// push removed elem to stack
 				stack.push(x);
-				//resursive call permutation
+				// //resursive call permutation
 				doPerm();
 				stack.pop();
 				arr.splice(i, 0, x);
